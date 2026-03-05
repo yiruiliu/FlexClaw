@@ -16,7 +16,7 @@ Using Claude Code, FlexClaw can dynamically rewrite its code to customize its fe
 
 ## Why I Built FlexClaw
 
-FlexClaw is a fork of [FlexClaw](https://github.com/qwibitai/FlexClaw) (MIT) that adds a lightweight model proxy, making it possible to use any Anthropic-compatible API endpoint without modifying the SDK or the container.
+FlexClaw is a fork of [NanoClaw](https://github.com/qwibitai/NanoClaw) (MIT) that adds a lightweight model proxy, making it possible to use any Anthropic-compatible API endpoint without modifying the SDK or the container.
 
 The Claude Agent SDK hardcodes `claude-sonnet-4-5` as its model name. Third-party providers (DashScope, Kimi, etc.) reject this name, making them unusable out of the box. FlexClaw runs a local HTTP proxy on the host that intercepts SDK requests, rewrites the model name, and forwards to the configured endpoint — no SDK patching required. Switching providers is a 3-line `.env` change.
 
