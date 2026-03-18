@@ -34,6 +34,10 @@ export function readEnvFile(keys: string[]): Record<string, string> {
       (value.startsWith("'") && value.endsWith("'"))
     ) {
       value = value.slice(1, -1);
+    } else {
+      // Strip inline comments (e.g. API_KEY=sk-xxx  # comment)
+      const commentIdx = value.indexOf(' #');
+      if (commentIdx !== -1) value = value.slice(0, commentIdx).trim();
     }
     if (value) result[key] = value;
   }
